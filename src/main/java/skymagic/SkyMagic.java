@@ -30,14 +30,14 @@ public class SkyMagic implements MagePlugin {
     }
 
     public void loadPlugin() {
-        SkyMagic.manager.registerMagic("smallheal", magicName, 1, 10, new SmallHeal(), MageEventType.INTERACT, false);
-        SkyMagic.manager.registerMagic("incresedamage", magicName, 8, 13, new Damage(), MageEventType.INTERACT, false);
-        SkyMagic.manager.registerMagic("mediumheal", magicName, 10, 15, new MediumHeal(), MageEventType.INTERACT, false);
-        SkyMagic.manager.registerMagic("fireresistence", magicName, 16, 18, new FireResistence(), MageEventType.INTERACT, false);
-        SkyMagic.manager.registerMagic("slow", magicName, 18, 23, new Slow(), MageEventType.INTERACT, false);
-        SkyMagic.manager.registerMagic("incresespeed", magicName, 19, 24, new Speed(), MageEventType.INTERACT, false);
-        SkyMagic.manager.registerMagic("bigheal", magicName, 20, 25, new BigHeal(), MageEventType.INTERACT, false);
-        SkyMagic.manager.registerMagic("wind", magicName, 22, 30, new Wind(), MageEventType.INTERACT, false);
+        SkyMagic.manager.registerMagic("smallheal", magicName, 1, 10, new SmallHeal(), MageEventType.INTERACT, false, new Long(800));
+        SkyMagic.manager.registerMagic("incresedamage", magicName, 8, 13, new Damage(), MageEventType.INTERACT, false, new Long(5000));
+        SkyMagic.manager.registerMagic("mediumheal", magicName, 10, 15, new MediumHeal(), MageEventType.INTERACT, false, new Long(2000));
+        SkyMagic.manager.registerMagic("fireresistence", magicName, 16, 18, new FireResistence(), MageEventType.INTERACT, false, new Long(6000));
+        SkyMagic.manager.registerMagic("slow", magicName, 18, 23, new Slow(), MageEventType.INTERACT, false, new Long(8000));
+        SkyMagic.manager.registerMagic("incresespeed", magicName, 19, 24, new Speed(), MageEventType.INTERACT, false, new Long(6000));
+        SkyMagic.manager.registerMagic("bigheal", magicName, 20, 25, new BigHeal(), MageEventType.INTERACT, false, new Long(3000));
+        SkyMagic.manager.registerMagic("wind", magicName, 22, 30, new Wind(), MageEventType.INTERACT, false, new Long(3000));
         System.out.println("SkyMagic Successfully Load!");
     }
 
