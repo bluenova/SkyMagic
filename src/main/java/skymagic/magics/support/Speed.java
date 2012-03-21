@@ -81,12 +81,12 @@ public class Speed extends MagePluginEvent {
                 self = true;
             }
 
-            ent.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, level * 30, 0));
+            ent.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, level * 100, 5));
             if (self) {
-                pl.sendMessage(ChatColor.GREEN + "You got Water Breathing for " + level * 30 + "s!");
+                pl.sendMessage(ChatColor.GREEN + "You got Speed !");
             } else {
-                pl.sendMessage(ChatColor.GREEN + "You gave Water Breathing for " + level * 30 + "s to " + ent.getName());
-                ent.sendMessage(ChatColor.GREEN + "You got Water Breathing for " + level * 30 + "s from " + pl.getName());
+                pl.sendMessage(ChatColor.GREEN + "You gave Speed  to " + ent.getName());
+                ent.sendMessage(ChatColor.GREEN + "You got Speed  from " + pl.getName());
             }
             pl.sendMessage("Mana decreesed!");
             return true;

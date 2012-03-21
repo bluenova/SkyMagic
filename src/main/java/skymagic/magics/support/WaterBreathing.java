@@ -22,14 +22,14 @@ import org.bukkit.util.BlockIterator;
  *
  * @author Sven
  */
-public class Damage extends MagePluginEvent {
+public class WaterBreathing extends MagePluginEvent {
 
     @Override
     public boolean callPlayerInteractEvent(PlayerInteractEvent event, Integer level) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Player pl = event.getPlayer();
-            int minLevel = 8;
-            int neededPerLevel = 4;
+            int minLevel = 19;
+            int neededPerLevel = 7;
             int range = 40;
             int playerLevel = skymagic.SkyMagic.manager.getPlayerConfig(event.getPlayer()).getLevel();
             
@@ -80,13 +80,13 @@ public class Damage extends MagePluginEvent {
                 ent = pl;
                 self = true;
             }
-            
-            ent.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, level * 6 * 100, 10));
+
+            ent.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, level * 30 * 100, 0));
             if (self) {
-                pl.sendMessage(ChatColor.GREEN + "You got Incresed Damage!");
+                pl.sendMessage(ChatColor.GREEN + "You got Water Breathing !");
             } else {
-                pl.sendMessage(ChatColor.GREEN + "You gave Incresed Damage to " + ent.getName());
-                ent.sendMessage(ChatColor.GREEN + "You got Incresed Damage from " + pl.getName());
+                pl.sendMessage(ChatColor.GREEN + "You gave Water Breathing  to " + ent.getName());
+                ent.sendMessage(ChatColor.GREEN + "You got Water Breathing  from " + pl.getName());
             }
             pl.sendMessage("Mana decreesed!");
             return true;

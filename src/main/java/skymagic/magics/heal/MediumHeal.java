@@ -68,7 +68,10 @@ public class MediumHeal extends MagePluginEvent{
                 ent = pl;
                 self = true;
             }
-            ent.setHealth(pl.getHealth()+12);
+            int hp = pl.getHealth() + 12;
+            if(hp > 20)
+                hp = 20;
+            ent.setHealth(hp);
             if(self)
                 pl.sendMessage(ChatColor.GREEN + "You healed yourselfe!");
             else {

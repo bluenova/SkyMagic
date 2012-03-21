@@ -81,12 +81,12 @@ public class FireResistence extends MagePluginEvent {
                 self = true;
             }
             
-            ent.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, level * 30, 0));
+            ent.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, level * 6 * 100, 0));
             if (self) {
-                pl.sendMessage(ChatColor.GREEN + "You got Fire Resistence for " + level * 30 + "s!");
+                pl.sendMessage(ChatColor.GREEN + "You got Fire Resistence !");
             } else {
-                pl.sendMessage(ChatColor.GREEN + "You gave Fire Resistence for " + level * 30 + "s to " + ent.getName());
-                ent.sendMessage(ChatColor.GREEN + "You got Fire Resistence for " + level * 30 + "s from " + pl.getName());
+                pl.sendMessage(ChatColor.GREEN + "You gave Fire Resistence  to " + ent.getName());
+                ent.sendMessage(ChatColor.GREEN + "You got Fire Resistence  from " + pl.getName());
             }
             pl.sendMessage("Mana decreesed!");
             return true;

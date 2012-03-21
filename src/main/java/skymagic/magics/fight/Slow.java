@@ -81,10 +81,10 @@ public class Slow extends MagePluginEvent {
                 self = true;
             }
 
-            ent.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, level * 5, 10));
+            ent.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, level * 100, 5));
 
-            pl.sendMessage(ChatColor.GREEN + "You Blind " + ent.getName() + " for " + level * 5);
-            ent.sendMessage(ChatColor.GREEN + "You got Blinded for " + level * 5 + "s from " + pl.getName());
+            pl.sendMessage(ChatColor.GREEN + "You Slow " + ent.getName());
+            ent.sendMessage(ChatColor.GREEN + "You got Slowed  from " + pl.getName());
 
             pl.sendMessage("Mana decreesed!");
             return true;

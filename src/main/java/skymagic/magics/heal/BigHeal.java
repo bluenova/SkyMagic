@@ -68,7 +68,7 @@ public class BigHeal extends MagePluginEvent{
                 ent = pl;
                 self = true;
             }
-            ent.setHealth(pl.getMaxHealth());
+            ent.setHealth(20);
             if(self)
                 pl.sendMessage(ChatColor.GREEN + "You healed yourselfe!");
             else {

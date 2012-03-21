@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package skymagic.magics.support;
+package skymagic.magics.fight;
 
 import bluenova.fairytailcraft.plugin.MagePluginEvent;
 import java.util.ArrayList;
@@ -22,17 +22,17 @@ import org.bukkit.util.BlockIterator;
  *
  * @author Sven
  */
-public class Damage extends MagePluginEvent {
+public class Confusion extends MagePluginEvent {
 
     @Override
     public boolean callPlayerInteractEvent(PlayerInteractEvent event, Integer level) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Player pl = event.getPlayer();
-            int minLevel = 8;
-            int neededPerLevel = 4;
+            int minLevel = 18;
+            int neededPerLevel = 6;
             int range = 40;
             int playerLevel = skymagic.SkyMagic.manager.getPlayerConfig(event.getPlayer()).getLevel();
-            
+
             minLevel = minLevel + ((level - 1) * neededPerLevel);
 
             if (playerLevel < minLevel) {
@@ -80,14 +80,12 @@ public class Damage extends MagePluginEvent {
                 ent = pl;
                 self = true;
             }
-            
-            ent.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, level * 6 * 100, 10));
-            if (self) {
-                pl.sendMessage(ChatColor.GREEN + "You got Incresed Damage!");
-            } else {
-                pl.sendMessage(ChatColor.GREEN + "You gave Incresed Damage to " + ent.getName());
-                ent.sendMessage(ChatColor.GREEN + "You got Incresed Damage from " + pl.getName());
-            }
+
+            ent.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, level * 2 * 100, 10));
+
+            pl.sendMessage(ChatColor.GREEN + "You Confused " + ent.getName());
+            ent.sendMessage(ChatColor.GREEN + "You got Confused from " + pl.getName());
+
             pl.sendMessage("Mana decreesed!");
             return true;
         }

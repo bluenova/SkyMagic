@@ -10,6 +10,7 @@ import java.util.List;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -27,14 +28,14 @@ public class Wind extends MagePluginEvent {
             Player pl = event.getPlayer();
             int range = 40;
 
-            Player ent = null;
+            LivingEntity ent = null;
             List<Entity> nearbyE = pl.getNearbyEntities(range,
                     range, range);
-            ArrayList<Player> livingE = new ArrayList<Player>();
+            ArrayList<LivingEntity> livingE = new ArrayList<LivingEntity>();
 
             for (Entity e : nearbyE) {
-                if (e instanceof Player) {
-                    livingE.add((Player) e);
+                if (e instanceof LivingEntity) {
+                    livingE.add((LivingEntity) e);
                 }
             }
 
@@ -51,7 +52,7 @@ public class Wind extends MagePluginEvent {
                 by = block.getY();
                 bz = block.getZ();
                 // check for entities near this block in the line of sight
-                for (Player e : livingE) {
+                for (LivingEntity e : livingE) {
                     loc = e.getLocation();
                     ex = loc.getX();
                     ey = loc.getY();
@@ -63,9 +64,11 @@ public class Wind extends MagePluginEvent {
                     }
                 }
             }
-            ent.damage(4, pl);            
-            pl.sendMessage("Mana decreesed!");
-            return true;
+            if (ent != null) {
+                ent.damage(4, pl);
+                pl.sendMessage("Mana decreesed!");
+                return true;
+            }
         }
         return false;
     }
